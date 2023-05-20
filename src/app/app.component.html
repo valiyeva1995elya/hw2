@@ -1,0 +1,19 @@
+<div class="block">
+  <div class="block-btn">
+    <button class="btn" (click)="increase()">+</button>
+    <button class="btn" (click)="clear()" [disabled]="cannotDecrease$ | async">
+      0
+    </button>
+    <button
+      class="btn"
+      (click)="decrease()"
+      [disabled]="cannotDecrease$ | async"
+    >
+      -
+    </button>
+  </div>
+  <p class="text">Счетчик: <span class="bl">{{ count$ | async }}</span></p>
+  <p *ngIf="updateAt$ | async" class="text">
+    Счетчик обновился {{ updateAt$ | async | date : "dd.MM.yyyy года в HH:mm:ss" }}
+  </p>
+</div>
